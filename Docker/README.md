@@ -68,34 +68,17 @@ bb3a0645c257        docker-case1:v3     "apachectl -D FOREGR…"   16 minutes ag
 Uploading Images to Docker Hub
 ==================================
 
-root@ip-172-31-8-13:~# docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                   NAMES
-bb3a0645c257        docker-case1:v3     "apachectl -D FOREGR…"   About an hour ago   Up About an hour    0.0.0.0:32784->80/tcp   pedantic_mcnulty
-3e26f05dc4d4        docker-case1:v2     "apachectl -D FOREGR…"   About an hour ago   Up About an hour    0.0.0.0:32783->80/tcp   naughty_hodgkin
-10d7cf74f9c2        docker-case1:v1     "apachectl -D FOREGR…"   About an hour ago   Up About an hour    0.0.0.0:32782->80/tcp   elastic_wilbur
-99f4b6648f0c        docker-case1:v1     "apachectl -D FOREGR…"   About an hour ago   Up About an hour    0.0.0.0:32780->80/tcp   great_lamport
-root@ip-172-31-8-13:~# docker login
-Authenticating with existing credentials...
-WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
-Configure a credential helper to remove this warning. See
-https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+docker tag docker-case1:v3 vish2020/dockerfile1
 
-Login Succeeded
-root@ip-172-31-8-13:~# docker tag docker-case1:v3 vish2020/dockerfile1
-root@ip-172-31-8-13:~# docker images
+docker images
 REPOSITORY             TAG                 IMAGE ID            CREATED             SIZE
-docker-case1           v3                  bb1cf4b2a5ba        About an hour ago   190MB
 vish2020/dockerfile1   latest              bb1cf4b2a5ba        About an hour ago   190MB
+docker-case1           v3                  bb1cf4b2a5ba        About an hour ago   190MB
 docker-case1           v2                  95b56c853f34        About an hour ago   190MB
 docker-case1           v1                  85aceb3ae4db        About an hour ago   190MB
 ubuntu                 18.04               d27b9ffc5667        2 weeks ago         64.2MB
-root@ip-172-31-8-13:~# docker push
-"docker push" requires exactly 1 argument.
-See 'docker push --help'.
 
-Usage:  docker push [OPTIONS] NAME[:TAG]
 
-Push an image or a repository to a registry
 root@ip-172-31-8-13:~# docker push vish2020/dockerfile1
 The push refers to repository [docker.io/vish2020/dockerfile1]
 36799c91df92: Pushed
@@ -106,5 +89,3 @@ The push refers to repository [docker.io/vish2020/dockerfile1]
 bf509d6bc5ec: Mounted from vish2020/webapp1
 88cc1a200eb9: Mounted from vish2020/webapp1
 latest: digest: sha256:d072b0e5ac90fd5749abff0f644551035b3dca07ee950c2dc28d57268cc216cd size: 1785
-root@ip-172-31-8-13:~#
-
