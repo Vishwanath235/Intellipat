@@ -3,9 +3,9 @@ services:
   web:
     image: httpd
     ports:
-      - "91"
+            - "91:80"
   app:
     image: nginx
     ports:
-      - "92"
+            - "92:80"
 
