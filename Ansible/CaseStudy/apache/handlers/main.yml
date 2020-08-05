@@ -1,0 +1,4 @@
+---
+# handlers file for apache
+  - name: install java
+    apt: name=openjdk-8-jdk state=present

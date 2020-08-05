@@ -1,0 +1,18 @@
+---
+  - hosts: slave1
+    become: yes
+    name: play1
+    tasks:
+      - name: execute date command
+        command: date
+      - name: execute script on server
+        script: script.sh
+
+  - hosts: slave2
+    name: play2
+    become: yes
+    tasks:
+      - name: execute script on server
+        script: script.sh
+      - name: ensure nginx is at the latest version
+        apt: name=nginx state=latest

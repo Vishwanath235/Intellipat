@@ -1,0 +1,5 @@
+---
+  - hosts: slave2
+    become: yes
+    roles: 
+      - website

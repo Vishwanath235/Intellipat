@@ -1,0 +1,5 @@
+ - name: installing apache
+   apt: name=apache2 update_cache=yes state=latest
+ - debug:
+      msg: "installation of apache completed sucessfully"
+

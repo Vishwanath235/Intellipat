@@ -1,0 +1,32 @@
+ansible@ip-172-31-33-14:~$ ansible-playbook test.yml
+
+PLAY [play1] *******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [172.31.36.13]
+
+TASK [execute date command] ****************************************************
+changed: [172.31.36.13]
+
+TASK [execute script on server] ************************************************
+changed: [172.31.36.13]
+
+PLAY [play2] *******************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [172.31.47.201]
+
+TASK [execute script on server] ************************************************
+changed: [172.31.47.201]
+
+TASK [ensure nginx is at the latest version] ***********************************
+changed: [172.31.47.201]
+
+PLAY RECAP *********************************************************************
+172.31.36.13               : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+172.31.47.201              : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+ansible@ip-172-31-33-14:~$ ansible-playbook test.yml --syntax-check
+
+playbook: test.yml
+
