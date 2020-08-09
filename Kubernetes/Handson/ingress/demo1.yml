@@ -1,0 +1,47 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: apache
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: web
+      env: dev
+  template:
+    metadata:
+      name: apache
+      labels:
+        app: web
+        env: dev
+    spec: 
+      containers:
+        - name: apache
+          image: vish2020/apacheapps
+          ports:
+            - containerPort: 80
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: git
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: git
+      env: prod
+  template:
+    metadata:
+      name: git
+      labels:
+        app: git
+        env: prod
+    spec:
+      containers:
+        - name: git
+          image: vish2020/gitapps
+          ports:
+            - containerPort: 80
+

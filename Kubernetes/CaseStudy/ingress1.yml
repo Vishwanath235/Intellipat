@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mying
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /apache
+        backend:
+          serviceName: apache      
+          servicePort: 80
+      - path: /custom
+        backend:
+          serviceName: git
+          servicePort: 80
+
