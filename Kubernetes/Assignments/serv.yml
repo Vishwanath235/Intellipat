@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod1
+  labels:
+    app: pod1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod1
+  template:
+    metadata:
+      labels:
+        app: pod1
+    spec:
+      containers:
+        - name: pod1
+          image: nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: pod1
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+  selector:
+    app: pod1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pod2
+  labels:
+    app: pod2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: pod2
+  template:
+    metadata:
+      labels:
+        app: pod2
+    spec:
+      containers:
+        - name: pod2
+          image: nginx
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: pod2
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+  selector:
+    app: pod2		  
